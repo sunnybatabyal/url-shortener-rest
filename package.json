@@ -1,0 +1,24 @@
+{
+  "name": "url-shortener-rest",
+  "version": "1.0.0",
+  "description": "REST API for shorterning URLs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/batabyalsunny/url-shortener-rest.git"
+  },
+  "author": "Sunny Batabyal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/batabyalsunny/url-shortener-rest/issues"
+  },
+  "homepage": "https://github.com/batabyalsunny/url-shortener-rest#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "mongoose": "^4.11.1"
+  }
+}
