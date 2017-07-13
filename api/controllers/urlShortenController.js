@@ -11,5 +11,5 @@ var defRes = require('../models/defaultResponseValueModel')
  * Shorters a URL specified in its arguemnt.
  */
 exports.shorten = function (req, res) {
-
+  res.send(req)
 }
