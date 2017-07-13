@@ -9,5 +9,5 @@ routes(app)
 
 // Start the server on specific port.
 app.listen(3210, function () {
-    console.log('Server is running at port : 3210')
+  console.log('Server is running at port : 3210')
 })

@@ -1,11 +1,17 @@
 /**
- * All API routes.
- */
+* All API routes.
+*/
 
 'use strict'
 
+// Include the controllers
+var welcome = require('../controllers/defaultController')
+
 module.exports = function (app) {
-    app.get('/', function (req, res) {
-        res.send('Welcome to urltu.me! shorterning your ULR is more easy than you think!')
-    })
+
+/**
+ * Default get route.
+ */
+app.get('/', welcome.getDefaultMessage)
+
 }
