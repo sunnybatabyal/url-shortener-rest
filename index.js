@@ -1,5 +1,10 @@
+// Include express.
 const express = require('express')
 const app = express()
+
+// Include mongoose and connect to DB.
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/test')
 
 // Include body parser
 const bodyParser = require('body-parser')
