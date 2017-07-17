@@ -39,3 +39,6 @@ _config.yml
 
 # Editor configuration
 .vscode
+
+# Application secrets
+app.config
