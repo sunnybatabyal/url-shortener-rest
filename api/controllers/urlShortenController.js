@@ -8,7 +8,7 @@
 const Hashids = require('hashids')
 
 // Initialize the hash function with a salt and set the length of the hash.
-var hashids = new Hashids('salt', 5)
+var hashids = new Hashids('', 5)
 
 // Import the default response objects.
 var defRes = require('../models/defaultResponseValueModel')
