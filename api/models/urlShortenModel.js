@@ -1,10 +1,22 @@
 /**
- * Contents DB operations on URL.
+ * Contents DB operations for shortening URL.
  */
 
-var Cat = mongoose.model('Cat', { name: String })
+// Create the schema.
+var Url = mongoose.model('Url', {
+  key: Number,
+  url: String,
+  hash: String,
+  createdAt: Date
+})
 
-var kitty = new Cat({ name: 'Zildjian' });
+// Asign values to the single url instance.
+var shortUrl = new Url({
+  key: 1,
+  url: '',
+  hash
+})
+
 kitty.save(function (err) {
   if (err) {
     console.log(err);
