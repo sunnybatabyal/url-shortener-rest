@@ -13,6 +13,11 @@ var status = {
   }
 
 /**
+ * Default data JSON format.
+ */
+var data = []
+
+/**
  * Default error JSON format.
  */
 var error = {
@@ -21,11 +26,6 @@ var error = {
     type: '',
     solutionLink: '',
 }
-
-/**
- * Default data JSON format.
- */
-var data = []
 
 /**
  * Export the objects to be re used.
