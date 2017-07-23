@@ -13,14 +13,14 @@ var hashids = new Hashids('', 5)
 // Import the default response objects.
 var defRes = require('../models/defaultResponseValueModel')
 
-// Import the default response objects.
-var defRes = require('../models/defaultResponseValueModel')
+// Import the URL shorten model.
+var shortenModel = require('../models/urlShortenModel')
 
 /**
  * Shorters a URL specified in its arguemnt.
  */
 exports.shorten = function (req, res) {
-  sendResponse(hashUrlId(getUrlId(req.body.url)), res)
+  getUrlId(req.body.url)
 }
 
 /**
@@ -30,7 +30,8 @@ exports.shorten = function (req, res) {
  * @return {number} The ID of the URl saved in DB.
  */
 var getUrlId = function (longUrl) {
-  return 5
+  // Send long url to model to save.
+  shortenModel.insertUrl(longUrl)
 }
 
 /**
@@ -39,8 +40,8 @@ var getUrlId = function (longUrl) {
  * @param {number} urlId The URL ID of the record stored in DB.
  * @return {string} The hashed and shortened URL.
  */
-var hashUrlId = function (urlId) {
-  return hashids.encode(urlId)
+exports.hashUrlId = function (urlId) {
+  console.log(hashids.encode(urlId))
 }
 
 /**
@@ -53,7 +54,7 @@ var sendResponse = function (hashedUrl, res) {
   defRes.status.message = 'OK'
   defRes.status.code = 200
 
-  // Set the response message.
+  // Set the response data and message.
   defRes.data = {
     url: hashedUrl,
     message: 'URL has been shortened successfully! Thanks for using our service.'
