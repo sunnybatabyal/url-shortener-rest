@@ -3,24 +3,31 @@
  */
 
 // Create the schema.
-var Url = mongoose.model('Url', {
-  key: Number,
+var urlSchema = new mongoose.Schema({
   url: String,
   hash: String,
   createdAt: Date
 })
 
-// Asign values to the single url instance.
-var shortUrl = new Url({
-  key: 1,
-  url: '',
-  hash
-})
+// Create the model.
+var Url = mongoose.model('Url', urlSchema)
 
-kitty.save(function (err) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('meow');
-  }
-})
+/**
+ * Inserts the url into db and returns the ID of that URL.
+ */
+exports.insertUrl = function (originalUrl) {
+  // Asign values to the single url instance.
+  var shortUrl = new Url({
+    url: originalUrl,
+    createdAt: new Date()
+  })
+
+  // Save the record in database.
+  shortUrl.save(function (err, url) {
+    if (err) {
+      return err
+    } else {
+      return url.id
+    }
+  })
+}
