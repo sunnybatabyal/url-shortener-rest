@@ -4,7 +4,7 @@
 
 'use strict'
 
-// Import the default response objects.
+// Import the default response object.
 var defRes = require('../models/defaultResponseValueModel')
 
 /**
