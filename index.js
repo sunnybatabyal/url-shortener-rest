@@ -2,14 +2,6 @@
 const express = require('express')
 const app = express()
 
-// Include mongoose.
-const mongoose = require('mongoose')
-
-// Connect to DB
-mongoose.connect('mongodb://localhost/url-shorten-rest', {
-  useMongoClient: true
-})
-
 // Include body parser
 const bodyParser = require('body-parser')
 

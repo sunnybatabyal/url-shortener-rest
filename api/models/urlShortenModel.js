@@ -2,6 +2,17 @@
  * Contents DB operations for shortening URL.
  */
 
+// Include mongoose.
+const mongoose = require('mongoose')
+
+// Connect to DB
+mongoose.connect('mongodb://localhost/url-shorten-rest', {
+  useMongoClient: true
+})
+
+// Import the URL shorten controller.
+var shortenController = require('../controllers/urlShortenController')
+
 // Create the schema.
 var urlSchema = new mongoose.Schema({
   url: String,
@@ -27,7 +38,8 @@ exports.insertUrl = function (originalUrl) {
     if (err) {
       return err
     } else {
-      return url.id
+      // Hash the URL id.
+      shortenController.hashUrlId(url._id)
     }
   })
 }
